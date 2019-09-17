@@ -1,0 +1,12 @@
+@import url('./_add/popup-edit__aboutme-error_add.css');
+@import url('./_length/popup-edit__aboutme-error_length.css');
+@import url('./_required/popup-edit__aboutme-error_required.css');
+
+
+.popup-edit__aboutme-error {
+    position: absolute;
+    top: 246px;
+    font-size: 12px;
+    color: red;
+    display: none;
+}

@@ -1,0 +1,11 @@
+@import url('./_add/popup-edit__fullname-error_add.css');
+@import url('./_required/popup-edit__fullname-error_required.css');
+@import url('./_length/popup-edit__fullname-error_length.css');
+
+
+.popup-edit__fullname-error {
+    position: absolute;
+    top: 175px;
+    font-size: 12px;
+    color: red;
+}

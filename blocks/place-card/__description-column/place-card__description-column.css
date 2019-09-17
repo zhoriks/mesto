@@ -1,0 +1,5 @@
+.place-card__description-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
