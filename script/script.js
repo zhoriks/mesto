@@ -1,3 +1,5 @@
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
+
 
 class Card {
   constructor(name, link) {
@@ -14,7 +16,7 @@ class Card {
       .addEventListener('click', this.remove);
     
   }
-  create() {     // без параметров
+  create() {    
     const imageLink = `background-image: url(${this.link})`;
 
     const placeCard = document.createElement('div');
@@ -51,11 +53,6 @@ class Card {
 
     placeCardName.textContent = this.name;
     placeCardImage.setAttribute('style', imageLink);
-    // Проверка #2 не исправлено
-
-    // Надо исправить - отрисовка задача класса cardList
-    // каждая функция должна иметь одно целевое действие
-    // например создавать разметку карточки с данными
 
     return placeCard;
   }
@@ -72,7 +69,7 @@ class Card {
 class CardList {
   constructor(container) {
     this.container = container;
-    this.render(); // отлично отрисовка запускается сразу при инициализации
+    this.render(); 
   }
 
   addCard(name, link) {
@@ -85,14 +82,7 @@ class CardList {
       .then((result) => {
         for (let i=0; i<result.length; i++) {
           this.addCard(result[i].name, result[i].link);
-          // Проверка #2 не исправлено
-          // внутри метода render лучше вызывать this.addCard(result[i].name, result[i].link)
-          // передавать данные для отрисовки и создания карточки
 
-          // отрисовка в cardList
-          // он же добавляет карточки на страницу в Card только получение разметки
-          // следует делать
-      
         }
       })
   }
@@ -266,7 +256,6 @@ class Api {
       }
       return Promise.reject(res.status);
     })
-    // Надо исправить #2 не хватает проверки результата запроса
   }
 }
 
@@ -289,7 +278,7 @@ const aboutMeInput = formEdit.elements.aboutme;
 const fullName = document.querySelector('.user-info__name');
 const aboutMe = document.querySelector('.user-info__job');
 
-const api = new Api('http://95.216.175.5/cohort2', 'ba6f616a-7f07-4a53-991f-9de8753974a0');
+const api = new Api(serverUrl, 'ba6f616a-7f07-4a53-991f-9de8753974a0');
 
 
 const cardList = new CardList(document.querySelector('.places-list'));
@@ -303,31 +292,7 @@ api.informationAboutMe()
       fullName.textContent = result.name;
       aboutMe.textContent = result.about;
     }
-      
-      /**
-       * Надо исправить перед обновлением элементов требуется проверять наличие
-       * данных в массиве например так if (data && data.length > 0) { render(data) }
-       */
-
-       //
-    // перенесите в класс пользователя
   })
-// api.informationAboutMe().then(data => ) обновляем DOM
-api.likesCounter()
-  .then((res) => { 
-    if (res && res.length > 0) { 
-      for (let i=0; i<res.length; i++) {
-          /**
-           * Надо исправить перед обновлением элементов требуется проверять наличие
-           * данных в массиве например так if (data && data.length > 0) { render(data) }
-           */ 
-
-          // здесь нужна проверка что пришел именно обьект?
-        document.querySelectorAll('.place-card__like-counter')[i].textContent = res[i].likes.length;
-      }
-    }
-  });
-setInterval(api.likesCounter, 30000) // Хорошая идея
 
 
 userInfoButton.addEventListener('click', function() {
@@ -343,12 +308,6 @@ document.forms.new.addEventListener('submit', function(event) {
       console.log(result)
       cardList.addCard(result.name, result.link);
       popup.close('popup');
-      /**
-       * Надо исправить перед обновлением элементов требуется проверять наличие
-       * данных в массиве например так if (data && data.length > 0) { render(data) }
-       */
-
-      // здесь не знаю какая нужна проверка
     })
 });
 
@@ -368,12 +327,6 @@ formEdit.addEventListener('submit', function(event) {
     .then((result) => { 
       fullName.textContent = result.name;
       aboutMe.textContent = result.about;
-      /**
-       * Надо исправить перед обновлением элементов требуется проверять наличие
-       * данных в массиве например так if (data && data.length > 0) { render(data) }
-       */
-
-       // Здесь идет отправка на сервер, что проверять?
     })
   popupEdit.close('popup-edit');
 });
@@ -389,5 +342,3 @@ document.querySelector('.places-list').addEventListener('click', function(event)
   popupPhotoImage.setAttribute('src', popupPhotoUrl);
   }
 });
-
-// Здравствуйте! Просьба, если будут ошибки, просьба удалить прошлые коментарии, чтобы не путаться :) Спасибо!

@@ -1,0 +1,40 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./script/script.js",
+  "scripts": {
+    "build": "NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "NODE_ENV=production gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhoriks/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhoriks/mesto/issues"
+  },
+  "homepage": "https://github.com/zhoriks/mesto#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "cross-env": "6.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "dependencies": {
+    "core-js": "^3.1.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.0.0"
+  }
+}
