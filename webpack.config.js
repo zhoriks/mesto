@@ -22,17 +22,17 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: [
-                     'file-loader?name=../images/[name].[ext]', 
                      {
-                         loader: 'image-webpack-loader',
+                         loader: 'file-loader?name=./images/[name].[ext]', 
                      },
                     ],
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                test: /\.(eot|ttf|woff|woff2)$/,
                 use: [
                          {
-                             loader: 'file-loader?name=./assets/fonts/webfonts/[name].[ext]'
+                                loader: 'file-loader?name=./vendor/[name].[ext]'
+                        
                          }
                      ]
             } 
