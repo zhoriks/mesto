@@ -11,7 +11,7 @@ module.exports = {
     entry: { main: './script/script.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -22,26 +22,23 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: [
+                     'file-loader?name=./images/[name].[ext]', 
                      {
-                         loader: 'file-loader?name=./images/[name].[ext]', 
+                         loader: 'image-webpack-loader',
                      },
-                    ],
+                ],
+                
             },
-            {
-                test: /\.(eot|ttf|woff|woff2)$/,
-                use: [
-                         {
-                                loader: 'file-loader?name=./vendor/[name].[ext]'
-                        
-                         }
-                     ]
-            } 
+                {
+                    test: /\.(eot|ttf|woff|woff2)$/,
+                    loader: 'file-loader?name=./vendor/[name].[ext]'
+                }
         ]
     },
     plugins: [ 
         
         new MiniCssExtractPlugin({
-                filename: 'index.css'
+                filename: 'index.[contenthash].css'
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
@@ -58,7 +55,7 @@ module.exports = {
             filename: 'index.html'
         }),
         new WebpackMd5Hash(),
-            new webpack.DefinePlugin({
+        new webpack.DefinePlugin({
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ]

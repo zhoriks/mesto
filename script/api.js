@@ -1,3 +1,7 @@
+const formEdit = document.forms.edit;
+const fullNameInput = formEdit.elements.fullname;
+const aboutMeInput = formEdit.elements.aboutme;
+
 export class Api {
     constructor(url,token) {
       this.url = url;

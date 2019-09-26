@@ -9,8 +9,6 @@ const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : '
 const userInfoButton = document.querySelector('.user-info__button');
 const closeUserInfoButton = document.querySelector('.popup__close');
 const form = document.forms.new;
-const addLink = form.elements.link;
-const addName = form.elements.name;
 const editButton = document.querySelector('.user-info__button_edit');
 const closeUserEditButton = document.querySelector('.popup-edit__close');
 const popupEditSaveButton = document.querySelector('.popup-edit__button');
@@ -18,12 +16,10 @@ const formEdit = document.forms.edit;
 const placesList = document.querySelector('.places-list');
 const popupPhotoImage = document.querySelector('.popup-photo__image')
 const closePopupPhotoButton = document.querySelector('.popup-photo__close');
-const popupAddCardButton = document.querySelector('.popup__button');
-const popupEditAddCardButton = document.querySelector('.popup-edit__button');
-const fullNameInput = formEdit.elements.fullname;
-const aboutMeInput = formEdit.elements.aboutme;
 const fullName = document.querySelector('.user-info__name');
 const aboutMe = document.querySelector('.user-info__job');
+const aboutMeInput = formEdit.elements.aboutme;
+const fullNameInput = formEdit.elements.fullname;
 
 export const api = new Api(serverUrl, 'ba6f616a-7f07-4a53-991f-9de8753974a0');
 

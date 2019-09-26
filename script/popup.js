@@ -1,9 +1,11 @@
 const form = document.forms.new;
 const formEdit = document.forms.edit;
-const addName = form.elements.name;
 const popupAddCardButton = document.querySelector('.popup__button');
 const fullNameInput = formEdit.elements.fullname;
 const aboutMeInput = formEdit.elements.aboutme;
+const addName = form.elements.name;
+const addLink = form.elements.link;
+const popupEditAddCardButton = document.querySelector('.popup-edit__button'); 
 
 export class Popup {
     constructor(container) {
@@ -29,7 +31,7 @@ export class Popup {
           popupAddCardButton.classList.remove("popup__button_disabled");
         }
       });
-      
+
       formEdit.addEventListener('input', function(event){
         if (fullNameInput.value.length === 0 || aboutMeInput.value.length === 0 ||fullNameInput.value.length === 1 || aboutMeInput.value.length === 1) {
           popupEditAddCardButton.setAttribute('disabled', true);
