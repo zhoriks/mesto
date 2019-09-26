@@ -1,6 +1,6 @@
 # zhoriks.github.io/mesto
 
-## v1.0.0
+## v0.0.4
 
 Проект практикума по использованию webpack и модульного разбиения JavaScript
 
