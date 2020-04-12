@@ -30,7 +30,7 @@ Optimize CSS assets[https://www.npmjs.com/package/optimize-css-assets-webpack-pl
 ## После установки всех пакетов проделайте следующее
 
 Склонируйте гит-репозиторий
->`git clone https://github.com/vadimob`
+>`git clone https://github.com/mesto`
 
 Установите npm-зависимости
 >`npm install`
